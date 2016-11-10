@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BaseApi.Ref.ConstructLambda&lt;T&gt;" Collapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAQACAAAAAA=</HashCode>
+      <FileName>.Ref\ConstructLambda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.App" Collapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\App.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Constants" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAIAQYgAAASAAgQEgAACQEAhACUESAAIABAAAAgg=</HashCode>
+      <FileName>App_Start\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.TestClass" Collapsed="true">
+    <Position X="13.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>TestClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.BLL.BaseControllerService&lt;T&gt;" Collapsed="true">
+    <Position X="9.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAIAAAIgICGABgAIAAAAAACAEAEAAAAAIAEAAQAAg=</HashCode>
+      <FileName>BLL\BaseControllerService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.BLL.BaseService" Collapsed="true">
+    <Position X="5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAQAgAAAABAEAAIAAAEmAEAAAACQgEAAAAAAAo=</HashCode>
+      <FileName>BLL\BaseService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.BLL.BaseService&lt;T&gt;" Collapsed="true">
+    <Position X="6.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAQAgAAAABAAAAIAAAEmAEAAAACQgEAAAAAAAo=</HashCode>
+      <FileName>BLL\BaseService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.BLL.FuncService" Collapsed="true">
+    <Position X="2.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>BLL\FuncService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.BLL.LoginService" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>BLL\LoginService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.BLL.MemCache" Collapsed="true">
+    <Position X="19" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIAAAAAAAAABABACAAABAAAAAAAAAAAAAABACAAAAA=</HashCode>
+      <FileName>BLL\MemCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.BLL.TokenService" Collapsed="true">
+    <Position X="5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLL\TokenService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.BLL.UserService" Collapsed="true">
+    <Position X="7.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLL\UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controller.ApiControllerExtention" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Controllers\ApiControllerExtention.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.BaseController" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\BaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.BaseController&lt;T&gt;" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAgAAAABAAAAAAAAACAEAQAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\BaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.FuncController" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\FuncController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.LoginController" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Controllers\LoginController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.RoleController" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\RoleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.RoleFuncController" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\RoleFuncController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.SimpleController&lt;T&gt;" Collapsed="true">
+    <Position X="22.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAACAEAAAAAAAAAAAAAABg=</HashCode>
+      <FileName>Controllers\SimpleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.UserController" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Controllers.UserRoleController" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\UserRoleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.DAL.ClientDAO" Collapsed="true">
+    <Position X="5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\ClientDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.DAL.FuncDAO" Collapsed="true">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAA=</HashCode>
+      <FileName>DAL\FuncDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.DAL.GenericDBContext" Collapsed="true">
+    <Position X="2.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAQAAQAgAACABAAAAIAAAEmAEQIAACQgEAAAAAAAo=</HashCode>
+      <FileName>DAL\GenericDBContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.DAL.GenericDBContext&lt;T&gt;" Collapsed="true">
+    <Position X="2.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAQAgAACABAAAAIAAAEmAEAAAACQgEAAAAAAAo=</HashCode>
+      <FileName>DAL\GenericDBContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.DAL.TokenDAO" Collapsed="true">
+    <Position X="15.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\TokenDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.DAL.UserDAO" Collapsed="true">
+    <Position X="2.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\UserDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Migrations.init" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201608110731222_init.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BaseApi.Migrations.Configuration" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.PreMessageHandler" Collapsed="true">
+    <Position X="19" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApiActionFilterAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.NoAuthAttribute" Collapsed="true">
+    <Position X="13.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApiActionFilterAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.ApiActionFilterAttribute" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApiActionFilterAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.MonitorLog" Collapsed="true">
+    <Position X="20.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAQBAAAAAAAAAAAABIAAgAAAACAAAAAAAAAQ=</HashCode>
+      <FileName>Models\ApiActionFilterAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.ApiExceptionAttribute" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\ApiExceptionAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.ApiRequest" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApiRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.ApiResponse" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAgAAAAAAAAABgAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApiResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.ApiResultModel" Collapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAgAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApiResultModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.FuncAttribute" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\FuncAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.MySqlDBConnection" Collapsed="true">
+    <Position X="2.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAACAAAAIAEgCAAAgAQAAAAAABAAA=</HashCode>
+      <FileName>Models\MySqlDBConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Models.ApplicationDbInitializer" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MySqlDBConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.TableAttribute" Collapsed="true">
+    <Position X="12" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\Attrs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.IdAttribute" Collapsed="true">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAIAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Tools\Attrs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.GenerationType" Collapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Tools\Attrs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.ColumnAttribute" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAgABAAAgAAgIAQAAABAAAAIAQAAAAAABAA=</HashCode>
+      <FileName>Tools\Attrs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.EntityTool" Collapsed="true">
+    <Position X="20.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgACAAAAAAAAAAAQAAQAAFEAAAAEAQ=</HashCode>
+      <FileName>Tools\EntityTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.ExcelHelper" Collapsed="true">
+    <Position X="22.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAggAAAAIAAAAAAAAAAgAAAAQAAAA=</HashCode>
+      <FileName>Tools\ExcelHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.ExtendMethod" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgARAAQAEA=</HashCode>
+      <FileName>Tools\ExtendMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.Internet" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Tools\Internet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.MySqlTool" Collapsed="true">
+    <Position X="22.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAACAAAgAICCAABACACAAAAAEAIABAACAAABAAAA=</HashCode>
+      <FileName>Tools\MySqlTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.MySqlTransTool" Collapsed="true">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACAIAAAAAAEBAAAAAQEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\MySqlTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.OdbcTool" Collapsed="true">
+    <Position X="15.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAACAAAgAICCAABACACAAAAAEAIABAACAAABAAAA=</HashCode>
+      <FileName>Tools\OdbcTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.OdbcTransTool" Collapsed="true">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACAIAAAAAAEBAAAAAQEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\OdbcTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.FileTool" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAABAAAAAAAAQAAICAAAAAAAAEAAAA=</HashCode>
+      <FileName>Tools\Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.JsonTool" Collapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAAAEAAAAAAAEAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.Tools" Collapsed="true">
+    <Position X="17.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAAAQAAAAAAAAQAAAAAAAACAAAABAAAAAIAAAAg=</HashCode>
+      <FileName>Tools\Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lib.RegisterTool" Collapsed="true">
+    <Position X="20.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAAAAAACAAAAAEAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Tools\Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Tools.InternalExtension" Collapsed="true">
+    <Position X="22.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABQAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Tools\InternalExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseApi.Tools.LoggerHelper" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAASAACACAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Tools\LoggerHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Delegate Name="BaseApi.BLL.EntityFunc&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLL\BaseControllerService.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
