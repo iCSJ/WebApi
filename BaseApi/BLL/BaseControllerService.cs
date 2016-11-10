@@ -98,7 +98,7 @@ namespace BaseApi.BLL
                 }
                 if (data.where != null)//查询条件
                 {
-                    return Db.Set<T>().Where(GetCondition((data.where as JObject))).ToList();
+                    return Db.Items<T>().Where(GetCondition((data.where as JObject))).ToList();
                 }
                 throw new Exception("查询条件不合法");
             }

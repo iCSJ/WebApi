@@ -1,5 +1,7 @@
 ﻿using CyApiClient;
+using CyModel;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Utils;
 
 namespace CyWpf
 {
@@ -30,20 +33,35 @@ namespace CyWpf
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             object content;
-            new CyHttpClient("api/option").Get().TryParseResult(out content);
+            CyHttpClient client = new CyHttpClient("api/option");
+            client.Get().TryParseResult(out content);
+            MessageBox.Show(content.ToString());
+
+            var x = new { where = new { Key = "m", ShopId = 1 } };
+            client.Get(JsonConvert.SerializeObject(x)).TryParseResult(out content);
+            MessageBox.Show(content.ToString());
+
+            client.Get(pageIndex: 2, pageSize: 8, asc: false).TryParseResult(out content);
+            MessageBox.Show(content.ToString());
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            object content;
+            Option option = new Option();
+            option.Key = "key1";
+            option.Value = "Value1";
+            Option option1 = new Option();
+            option1.Key = "key2";
+            option1.Value = "Value2";
+            var json = new { model = new List<Option>() { option, option1 } };
+
+            new CyHttpClient("api/option").Post(JsonConvert.SerializeObject(json)).TryParseResult(out content);
             string s = content.ToString();
             MessageBox.Show(s);
 
-            //JsonConvert.DefaultSettings = () => { return new JsonSerializerSettings() { DateFormatString = "yyyy-MM-dd hh:mm:ss" }; };
-            //var p = new { Id = 1, Name = "Lili", IsValid = true, Visible = ScrollBarVisibility.Visible, Date = DateTime.Now };
-            //var x = JsonConvert.SerializeObject(p);
-            //string str = x.ToString();
-            //var y = JsonConvert.DeserializeObject<dynamic>(x);
-            //var ystr = y.ToString();
-            //if (y == p)
-            //{
-            //    MessageBox.Show("equar");
-            //}
+
+
         }
     }
     public class Person

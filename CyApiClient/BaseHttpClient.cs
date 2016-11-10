@@ -117,7 +117,7 @@ namespace CyApiClient
         /// <param name="action"></param>
         /// <param name="withToken"></param>
         /// <returns></returns>
-        public ApiResultModel Post(string json = "", string action = "Post", bool withToken = true)
+        public ApiResultModel Post(string json, string action = "Post", bool withToken = true)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -134,7 +134,7 @@ namespace CyApiClient
         /// <param name="action"></param>
         /// <param name="withToken"></param>
         /// <returns></returns>
-        public ApiResultModel Put(string json = "", string action = "Put", bool withToken = true)
+        public ApiResultModel Put(string json, string action = "Put", bool withToken = true)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -151,7 +151,7 @@ namespace CyApiClient
         /// <param name="action"></param>
         /// <param name="withToken"></param>
         /// <returns></returns>
-        public ApiResultModel Modify(string json = "", string action = "Modify", bool withToken = true)
+        public ApiResultModel Modify(string json, string action = "Modify", bool withToken = true)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -168,7 +168,7 @@ namespace CyApiClient
         /// <param name="action"></param>
         /// <param name="withToken"></param>
         /// <returns></returns>
-        public ApiResultModel Delete(string json = "", string action = "Delete", bool withToken = true)
+        public ApiResultModel Delete(string json, string action = "Delete", bool withToken = true)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -185,7 +185,7 @@ namespace CyApiClient
         /// <param name="action"></param>
         /// <param name="withToken"></param>
         /// <returns></returns>
-        public ApiResultModel LogicDelete(string json = "", string action = "LogicDelete", bool withToken = true)
+        public ApiResultModel LogicDelete(string json, string action = "LogicDelete", bool withToken = true)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))

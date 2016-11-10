@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -61,6 +62,14 @@ namespace Utils
                 return ex.StackTrace;
             else
                 return string.Format("{0} -> {1}", ex.StackTrace, ex.InnerException.FullStackTrace());
+        }
+        public static string JsonSerial(this object obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+        public static T JsonDeserial<T>(this string json)
+        {
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }

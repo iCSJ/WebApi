@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utils;
 
 namespace CyApiApp
 {
@@ -72,7 +73,7 @@ namespace CyApiApp
                 list.Add(op);
             }
             ar = mClient.Post(JsonConvert.SerializeObject(new { model = list }));
-            ar = mClient.Post(value: new { model = list });
+            ar = mClient.Post((new { model = list }).JsonSerial());
 
             //查询
             ar = mClient.Get();

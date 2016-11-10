@@ -178,6 +178,12 @@ namespace BaseApi.DAL
             }
             return SaveChangesAsync().Result;
         }
+        /// <summary>
+        /// 生成主键查询条件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keyList"></param>
+        /// <returns></returns>
         SuuchaExpression KeyCondition<T>(List<object[]> keyList)
         {
             var condition = SuuchaExpression.Equal(SuuchaExpression.Constant(0), SuuchaExpression.Constant(1));
@@ -197,6 +203,11 @@ namespace BaseApi.DAL
             }
             return condition;
         }
+        /// <summary>
+        /// 过滤掉逻辑删除的数据，条件为IsDelete==null or IsDelete = false
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         SuuchaExpression LogicDeleteCondition<T>()
         {
             if (typeof(T).IsSubclassOf(typeof(BaseEntity)))

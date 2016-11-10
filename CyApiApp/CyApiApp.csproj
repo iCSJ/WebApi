@@ -83,6 +83,10 @@
       <Project>{2E45B835-668F-47DA-8119-B75F1D504572}</Project>
       <Name>CyModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{C05E2156-3CFC-49D2-B9F6-9EA6818F2716}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

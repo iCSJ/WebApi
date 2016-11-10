@@ -33,7 +33,7 @@ namespace BaseApi.BLL
             {
                 throw new Exception("数据令牌已过期");
             }
-            return new UserDAO().GetByToken(token);
+            return t.User;
         }
 
         public Token CreateToken(User user,string ClientNo)
