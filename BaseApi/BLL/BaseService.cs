@@ -39,6 +39,7 @@ namespace BaseApi.BLL
                 return Db.Get<T>(keyValues);
             });
         }
+        /*
         public Task<List<T>> GetList<T>(List<object[]> keyList) where T : class
         {
             return Task.Run(() =>
@@ -46,6 +47,7 @@ namespace BaseApi.BLL
                 return Db.GetList<T>(keyList);
             });
         }
+        */
         public Task<int> Post<T>(T t) where T : class
         {
             return Task.Run(() =>
@@ -82,6 +84,7 @@ namespace BaseApi.BLL
                 return Db.Delete<T>(keyValues);
             });
         }
+        /*
         public Task<int> DeleteListByKey<T>(List<object[]> keyList) where T : class
         {
             return Task.Run(() =>
@@ -89,6 +92,7 @@ namespace BaseApi.BLL
                 return Db.DeleteListByKey<T>(keyList);
             });
         }
+        */
         public Task<int> Delete<T>(T t) where T : class
         {
             return Task.Run(() =>
@@ -110,6 +114,7 @@ namespace BaseApi.BLL
                 return Db.LogicDelete<T>(keyValues);
             });
         }
+        /*
         public Task<int> LogicDeleteListByKey<T>(List<object[]> keyList) where T : class
         {
             return Task.Run(() =>
@@ -117,6 +122,7 @@ namespace BaseApi.BLL
                 return Db.LogicDeleteListByKey<T>(keyList);
             });
         }
+        */
         public Task<int> LogicDelete<T>(T t) where T : class
         {
             return Task.Run(() =>
@@ -170,10 +176,12 @@ namespace BaseApi.BLL
         {
             return base.Get<T>(keyValues);
         }
+        /*
         public Task<List<T>> GetList(List<object[]> keyList)
         {
             return base.GetList<T>(keyList);
         }
+        */
         public Task<int> Post(T t)
         {
             return base.Post(t);
@@ -195,10 +203,12 @@ namespace BaseApi.BLL
         {
             return base.Delete<T>(keyValues);
         }
+        /*
         public Task<int> DeleteListByKey(List<object[]> keyList)
         {
             return base.DeleteListByKey<T>(keyList);
         }
+        */
         public Task<int> Delete(T t)
         {
             return base.Delete(t);
@@ -211,10 +221,12 @@ namespace BaseApi.BLL
         {
             return base.LogicDelete<T>(keyValues);
         }
+        /*
         public Task<int> LogicDeleteListByKey(List<object[]> keyList)
         {
             return base.LogicDeleteListByKey<T>(keyList);
         }
+        */
         public Task<int> LogicDelete(T t)
         {
             return base.LogicDelete(t);

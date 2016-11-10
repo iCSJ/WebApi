@@ -22,7 +22,7 @@ namespace CyApiClient
         {
             return Tools.MD5Encode(json + GlobalVar.ClientKey);
         }
-        public ApiResultModel Get(string json = "", string action = "Get", bool withToken = true, string mac = null, int pageIndex = 0, int pageSize = 0, string orderBy = "Id", bool asc = true)
+        public ApiResultModel Get(string json = "", string action = ACTION_GET, bool withToken = true, string mac = null, int pageIndex = 0, int pageSize = 0, string orderBy = "Id", bool asc = true)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -41,7 +41,7 @@ namespace CyApiClient
             }
             return response.ParseResult();
         }
-        public ApiResultModel Post(string json, string action = "Post", bool withToken = true, string mac = null)
+        public ApiResultModel Post(string json, string action = ACTION_POST, bool withToken = true, string mac = null)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -53,7 +53,7 @@ namespace CyApiClient
             }
             return response.ParseResult();
         }
-        public ApiResultModel Put(string json, string action = "Post", bool withToken = true, string mac = null)
+        public ApiResultModel Put(string json, string action = ACTION_PUT, bool withToken = true, string mac = null)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -65,7 +65,7 @@ namespace CyApiClient
             }
             return response.ParseResult();
         }
-        public ApiResultModel Modify(string json, string action = "Post", bool withToken = true, string mac = null)
+        public ApiResultModel Modify(string json, string action = ACTION_MODIFY, bool withToken = true, string mac = null)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -77,7 +77,7 @@ namespace CyApiClient
             }
             return response.ParseResult();
         }
-        public ApiResultModel Delete(string json, string action = "Post", bool withToken = true, string mac = null)
+        public ApiResultModel Delete(string json, string action = ACTION_DELETE, bool withToken = true, string mac = null)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))
@@ -89,7 +89,7 @@ namespace CyApiClient
             }
             return response.ParseResult();
         }
-        public ApiResultModel LogicDelete(string json, string action = "Post", bool withToken = true, string mac = null)
+        public ApiResultModel LogicDelete(string json, string action = ACTION_LOGICDELETE, bool withToken = true, string mac = null)
         {
             HttpResponseMessage response;
             using (HttpClient client = CreateClient(action))

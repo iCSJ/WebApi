@@ -18,7 +18,7 @@ namespace BaseApi.Controllers
     {
     }
     /// <summary>
-    /// 带token的简单控制器，含增删改查与批量增删改查
+    /// 带token的简单控制器，含增删改查与批量增删改查,继承自此类的控制器,如果有标识Func则都要验证权限，未标识Func的则需要Admin角色权限
     /// </summary>
     /// <typeparam name="T"></typeparam>
     [RoutePrefix("Base")]

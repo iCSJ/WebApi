@@ -10,6 +10,7 @@ using System.Linq.Dynamic;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace BaseApi.DAL
 {/// <summary>
@@ -24,6 +25,10 @@ namespace BaseApi.DAL
                 return new GenericDBContext();
             }
         }
+        /// <summary>
+        /// 校验T 是否为BaseEntity或其子类
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
         private void CheckType<T>()
         {
             if (typeof(T).IsSubclassOf(typeof(BaseEntity)) == false)
@@ -32,7 +37,7 @@ namespace BaseApi.DAL
             }
         }
         /// <summary>
-        /// 查询所有未逻辑删除的数据
+        /// 查询所有未逻辑删除的数据，返回IQueryable<T>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -40,10 +45,21 @@ namespace BaseApi.DAL
         {
             return Set<T>().Where(LogicDeleteCondition<T>());
         }
+        /// <summary>
+        /// 所有未逻辑删除的数据，返回LIST
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public List<T> GetAll<T>() where T : class
         {
             return Items<T>().ToList();
         }
+        /// <summary>
+        /// 根据主键查询实体并反回
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         public T Get<T>(params object[] keyValues) where T : class
         {
             T t = Set<T>().Find(keyValues);
@@ -53,10 +69,23 @@ namespace BaseApi.DAL
             }
             return t;
         }
-        public List<T> GetList<T>(List<object[]> keyList) where T : class
+        /*
+         public List<T> GetList<T>(List<object[]> keyList) where T : class
         {
             return Items<T>().Where(KeyCondition<T>(keyList)).ToList();
         }
+        */
+
+        /// <summary>
+        /// 分页获取数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="total"></param>
+        /// <param name="orderBy"></param>
+        /// <param name="asc"></param>
+        /// <returns></returns>
         public List<T> GetPage<T>(int pageIndex, int pageSize, out int total, string orderBy = "Id", bool asc = true) where T : class
         {
             var list = Items<T>();
@@ -64,13 +93,24 @@ namespace BaseApi.DAL
             IEnumerable<SuuchaOrderBy> order = new List<SuuchaOrderBy>() { new SuuchaOrderBy(orderBy, asc) };
             return list.OrderBy(order).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
         }
+        /// <summary>
+        /// 修改数据，新对象空值会复盖数据库原有值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public int Put<T>(T item) where T : class
         {
             Set<T>().Attach(item);
             Entry(item).State = EntityState.Modified;
             return SaveChangesAsync().Result;
         }
-
+        /// <summary>
+        /// 修改列表，新对象空值会复盖数据库原有值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <returns></returns>
         public int PutList<T>(IList<T> items) where T : class
         {
             foreach (T item in items)
@@ -80,12 +120,23 @@ namespace BaseApi.DAL
             }
             return SaveChangesAsync().Result;
         }
-
+        /// <summary>
+        /// 添加新数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public int Post<T>(T item) where T : class
         {
             Set<T>().Add(item);
             return SaveChangesAsync().Result;
         }
+        /// <summary>
+        /// 添加新列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <returns></returns>
         public int PostList<T>(IList<T> items) where T : class
         {
             foreach (T item in items)
@@ -94,10 +145,18 @@ namespace BaseApi.DAL
             }
             return SaveChangesAsync().Result;
         }
+        /// <summary>
+        /// 根据主键删除数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         public int Delete<T>(params object[] keyValues) where T : class
         {
             return Delete(Get<T>(keyValues));
         }
+
+        /*
         public int DeleteListByKey<T>(IList<object[]> keyList) where T : class
         {
             List<T> items = new List<T>();
@@ -106,14 +165,26 @@ namespace BaseApi.DAL
                 items.Add(Get<T>(key));
             }
             return DeleteList(items);
-        }
+        }*/
 
+        /// <summary>
+        /// 删除数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public int Delete<T>(T item) where T : class
         {
             Set<T>().Attach(item);
             Entry(item).State = EntityState.Deleted;
             return SaveChangesAsync().Result;
         }
+        /// <summary>
+        /// 删除列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <returns></returns>
         public int DeleteList<T>(IList<T> items) where T : class
         {
             foreach (T item in items)
@@ -123,11 +194,17 @@ namespace BaseApi.DAL
             }
             return SaveChangesAsync().Result;
         }
-
+        /// <summary>
+        /// 根据主键，逻辑删除数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         public int LogicDelete<T>(params object[] keyValues) where T : class
         {
             return LogicDelete(Get<T>(keyValues));
         }
+        /*
         public int LogicDeleteListByKey<T>(IList<object[]> keyList) where T : class
         {
             List<T> items = new List<T>();
@@ -137,6 +214,13 @@ namespace BaseApi.DAL
             }
             return LogicDeleteList(items);
         }
+        */
+        /// <summary>
+        /// 逻辑删除数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public int LogicDelete<T>(T item) where T : class
         {
             CheckType<T>();
@@ -144,6 +228,12 @@ namespace BaseApi.DAL
             (item as BaseEntity).IsDeleted = true;
             return SaveChangesAsync().Result;
         }
+        /// <summary>
+        /// 逻辑删除列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <returns></returns>
         public int LogicDeleteList<T>(IList<T> items) where T : class
         {
             CheckType<T>();
@@ -154,12 +244,24 @@ namespace BaseApi.DAL
             }
             return SaveChangesAsync().Result;
         }
+        /// <summary>
+        /// 如果不存在在添加，否则修改
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public int InsertOrUpdate<T>(T item) where T : class
         {
             CheckType<T>();
             T t = Set<T>().FindAsync((item as BaseEntity).Id).Result;
             return null == t ? Post(item) : Put(item);
         }
+        /// <summary>
+        /// 实体列表，如果不存在在添加，否则修改
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <returns></returns>
         public int InsertOrUpdateList<T>(IList<T> items) where T : class
         {
             CheckType<T>();
@@ -242,10 +344,12 @@ namespace BaseApi.DAL
         {
             return base.Get<T>(keyValues);
         }
+        /*
         public List<T> GetList(List<object[]> keyList)
         {
             return base.GetList<T>(keyList);
         }
+        */
         public int Put(T item)
         {
             return base.Put(item);
@@ -268,10 +372,12 @@ namespace BaseApi.DAL
         {
             return Delete(Get<T>(keyValues));
         }
+        /*
         public int DeleteListByKey(IList<object[]> keyList)
         {
             return base.DeleteListByKey<T>(keyList);
         }
+        */
 
         public int Delete(T item)
         {
@@ -286,10 +392,12 @@ namespace BaseApi.DAL
         {
             return base.LogicDelete(keyValues);
         }
+        /*
         public int LogicDeleteListByKey(IList<object[]> keyList)
         {
             return base.LogicDeleteListByKey<T>(keyList);
         }
+        */
         public int LogicDelete(T item)
         {
             return base.LogicDelete(item);

@@ -34,15 +34,28 @@ namespace CyWpf
         {
             object content;
             CyHttpClient client = new CyHttpClient("api/option");
-            client.Get().TryParseResult(out content);
+
+            client.LogicDelete(30.ToString()).TryParseResult(out content);
             MessageBox.Show(content.ToString());
 
-            var x = new { where = new { Key = "m", ShopId = 1 } };
-            client.Get(JsonConvert.SerializeObject(x)).TryParseResult(out content);
+            client.Seg= "api/rolefunc";
+            client.LogicDelete("[2,1]").TryParseResult(out content);
             MessageBox.Show(content.ToString());
 
-            client.Get(pageIndex: 2, pageSize: 8, asc: false).TryParseResult(out content);
-            MessageBox.Show(content.ToString());
+            //client.Get().TryParseResult(out content);
+            //MessageBox.Show(content.ToString());
+
+            //var x = new { where = new { Key = "m", ShopId = 1 } };
+            //client.Get(JsonConvert.SerializeObject(x)).TryParseResult(out content);
+            //MessageBox.Show(content.ToString());
+
+            //client.Get(pageIndex: 2, pageSize: 8, asc: false).TryParseResult(out content);
+            //MessageBox.Show(content.ToString());
+
+            //client.Seg = "api/rolefunc";
+            //client.Get("[2,1]").TryParseResult(out content);
+            //MessageBox.Show(content.ToString());
+
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -54,14 +67,11 @@ namespace CyWpf
             Option option1 = new Option();
             option1.Key = "key2";
             option1.Value = "Value2";
-            var json = new { model = new List<Option>() { option, option1 } };
-
+            //var json = new { model = new List<Option>() { option, option1 } };
+            var json = new List<Option>() { option, option1 };
             new CyHttpClient("api/option").Post(JsonConvert.SerializeObject(json)).TryParseResult(out content);
             string s = content.ToString();
             MessageBox.Show(s);
-
-
-
         }
     }
     public class Person
