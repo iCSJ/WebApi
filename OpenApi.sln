@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseApi", "BaseApi\BaseApi.csproj", "{0C187AC0-71A4-43B8-B84D-EAF80723F989}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyWpf", "CyWpf\CyWpf.csproj
 		{C05E2156-3CFC-49D2-B9F6-9EA6818F2716} = {C05E2156-3CFC-49D2-B9F6-9EA6818F2716}
 		{4230C1BD-1EAE-4FB8-9D97-3B8E947B8BCF} = {4230C1BD-1EAE-4FB8-9D97-3B8E947B8BCF}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseApiTests", "BaseApiTests\BaseApiTests.csproj", "{6CDEFD81-F59C-4557-A6F5-DE27988DB04B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +88,10 @@ Global
 		{77E4B6E4-60E1-4CC1-BC32-8E86E19BDE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77E4B6E4-60E1-4CC1-BC32-8E86E19BDE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77E4B6E4-60E1-4CC1-BC32-8E86E19BDE7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CDEFD81-F59C-4557-A6F5-DE27988DB04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CDEFD81-F59C-4557-A6F5-DE27988DB04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CDEFD81-F59C-4557-A6F5-DE27988DB04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CDEFD81-F59C-4557-A6F5-DE27988DB04B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

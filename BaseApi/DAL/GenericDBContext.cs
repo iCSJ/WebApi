@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Transactions;
 
 namespace BaseApi.DAL
 {/// <summary>
@@ -103,7 +104,7 @@ namespace BaseApi.DAL
         {
             Set<T>().Attach(item);
             Entry(item).State = EntityState.Modified;
-            return SaveChangesAsync().Result;
+            return SaveChangesAsync().Result;            
         }
         /// <summary>
         /// 修改列表，新对象空值会复盖数据库原有值

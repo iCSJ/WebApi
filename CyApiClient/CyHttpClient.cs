@@ -9,6 +9,9 @@ using Utils;
 
 namespace CyApiClient
 {
+    /// <summary>
+    /// 餐饮版增删改查HTTP服务，参数为店铺名和Mac校验字串
+    /// </summary>
     public class CyHttpClient : BaseHttpClient
     {
         public const string SHOPID = "shopid";

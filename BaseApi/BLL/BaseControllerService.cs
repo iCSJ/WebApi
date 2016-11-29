@@ -23,18 +23,18 @@ namespace BaseApi.BLL
     public delegate void EntityFunc<T>(ref List<T> list) where T : class;
     public class BaseControllerService<T> : BaseService<T> where T : class
     {
-        public Action<List<object[]>> OnEntityGeting { get; set; }
-        public Action<List<object[]>> OnEntityGeted { get; set; }
+        public Action<object[]> OnEntityGeting { get; set; }
+        public Action<object[]> OnEntityGeted { get; set; }
         public EntityFunc<T> OnEntityPosting { get; set; }
         public EntityFunc<T> OnEntityPosted { get; set; }
         public EntityFunc<T> OnEntityPuting { get; set; }
         public EntityFunc<T> OnEntityPuted { get; set; }
         public EntityFunc<T> OnEntityModifing { get; set; }
         public EntityFunc<T> OnEntityModified { get; set; }
-        public Action<List<object[]>> OnEntityDeleting { get; set; }
-        public Action<List<object[]>> OnEntityDeleted { get; set; }
-        public Action<List<object[]>> OnEntityLogicDeleting { get; set; }
-        public Action<List<object[]>> OnEntityLogicDeleted { get; set; }
+        public Action<object[]> OnEntityDeleting { get; set; }
+        public Action<object[]> OnEntityDeleted { get; set; }
+        public Action<object[]> OnEntityLogicDeleting { get; set; }
+        public Action<object[]> OnEntityLogicDeleted { get; set; }
         public BaseControllerService(GenericDBContext db) : base(db) { }
 
         #region 通过JSON主键，比如id,ids,model等进行对象的操作，已经不使用这种方式
@@ -454,21 +454,20 @@ namespace BaseApi.BLL
                 {
                     return Db.Items<T>().Where(GetCondition((data.where as JObject))).ToList();
                 }
-                if (data.GetType() == typeof(JValue))
+                if (data.GetType() == typeof(JValue) || data.GetType().IsValueType)
                 {
-                    List<object[]> key = new List<object[]>() { new object[] { data.Value } };
-                    OnEntityGeting?.Invoke(key);
-                    T t = await Get(data.Value);
-                    OnEntityGeted?.Invoke(key);
+                    object key = data.GetType().IsValueType ? data : data.Value;
+                    OnEntityGeting?.Invoke(new object[] { key });
+                    T t = await Get(key);
+                    OnEntityGeted?.Invoke(new object[] { key });
                     return t;
                 }
                 else if (data.GetType() == typeof(JArray))
                 {
                     JArray array = data as JArray;
-                    object[] keys = array.ToObject<object[]>();
-                    List<object[]> key = new List<object[]>() { keys };
+                    object[] key = array.ToObject<object[]>();
                     OnEntityGeting?.Invoke(key);
-                    T t = await Get(keys);
+                    T t = await Get(key);
                     OnEntityGeted?.Invoke(key);
                     return t;
                 }
@@ -611,9 +610,9 @@ namespace BaseApi.BLL
                         }
                     }
                     List<T> list = new List<T>() { model };
-                    OnEntityModifing(ref list);
+                    OnEntityModifing?.Invoke(ref list);
                     int r = await Put(model);
-                    OnEntityModified(ref list);
+                    OnEntityModified?.Invoke(ref list);
                     return r;
                 }
                 else if (data.GetType() == typeof(JArray))
@@ -654,9 +653,9 @@ namespace BaseApi.BLL
                         }
                         modellist.Add(model);
                     }
-                    OnEntityModifing(ref modellist);
+                    OnEntityModifing?.Invoke(ref modellist);
                     int r = await PutList(modellist);
-                    OnEntityModified(ref modellist);
+                    OnEntityModified?.Invoke(ref modellist);
                     return r;
                 }
                 throw new Exception("解析Json对象失败");
@@ -675,18 +674,17 @@ namespace BaseApi.BLL
                 {
                     if (data.GetType().IsValueType)
                     {
-                        OnEntityDeleting?.Invoke(data);
+                        OnEntityDeleting?.Invoke(new object[] { data });
                         int r = await Delete(data);
-                        OnEntityDeleted?.Invoke(data);
+                        OnEntityDeleted?.Invoke(new object[] { data });
                         return r;
                     }
                     else if (data.GetType() == typeof(JArray))
                     {
                         JArray array = data as JArray;
-                        object[] id = array.ToObject<object[]>();
-                        List<object[]> key = new List<object[]>() { id };
+                        object[] key = array.ToObject<object[]>();
                         OnEntityDeleting?.Invoke(key);
-                        int r = await Delete(id);
+                        int r = await Delete(key);
                         OnEntityDeleted?.Invoke(key);
                         return r;
                     }
@@ -706,19 +704,18 @@ namespace BaseApi.BLL
                 if (data != null)//单实体
                 {
                     if (data.GetType().IsValueType)
-                    {                        
-                        OnEntityLogicDeleting?.Invoke(data);
+                    {
+                        OnEntityLogicDeleting?.Invoke(new object[] { data });
                         int r = await LogicDelete(data);
-                        OnEntityLogicDeleted?.Invoke(data);
+                        OnEntityLogicDeleted?.Invoke(new object[] { data });
                         return r;
                     }
                     else if (data.GetType() == typeof(JArray))
                     {
                         JArray array = data as JArray;
-                        object[] id = array.ToObject<object[]>();
-                        List<object[]> key = new List<object[]>() { id };
+                        object[] key = array.ToObject<object[]>();
                         OnEntityLogicDeleting?.Invoke(key);
-                        int r = await LogicDelete(id);
+                        int r = await LogicDelete(key);
                         OnEntityLogicDeleted?.Invoke(key);
                         return r;
                     }

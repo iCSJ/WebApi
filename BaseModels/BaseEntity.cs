@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GalaSoft.MvvmLight;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace BaseModels
 {
-    public abstract class BaseEntity
+    public abstract class BaseEntity: INotifyPropertyChanged
     {
         /// <summary>
         /// 唯一自增长Id
         /// </summary>
-        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [JsonProperty(Order = 0)]
         public int Id { get; set; }
         /// <summary>
@@ -56,14 +57,24 @@ namespace BaseModels
         /// </summary>
         public bool? IsSync { get; set; }
         /// <summary>
-        /// 数据状态，默认Null，新增1，修改2，删除
+        /// 数据状态，默认Null，新增1，修改2，删除-1
         /// </summary>
         /// 
         [NotMapped]
         public DataState? DataState { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                var e = new PropertyChangedEventArgs(propertyName);
+                handler(this, e);
+            }
+        }
     }
     public enum DataState
     {
-        Default, Add, Mod, Del
+        Default = 0, Add = 1, Mod = 2, Del = -1
     }
 }

@@ -8,6 +8,7 @@ using CyApi.BLL;
 using CyApi.DAL;
 using System.Web.Http;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace CyApi.Controllers
 {
@@ -16,7 +17,7 @@ namespace CyApi.Controllers
     /// </summary>
     public class CyController<T> : BaseController<T> where T : class
     {
-        public CyControllerService<T> CyService { get; set; }
+         public CyControllerService<T> CyService { get; set; }
         public CyController(CyControllerService<T> s = null)
         {
             CyService = s ?? new CyControllerService<T>();

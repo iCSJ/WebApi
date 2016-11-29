@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace CyApiClient
 {
+    /// <summary>
+    /// 常规增删改查HTTP服务，需带令版访问
+    /// </summary>
     public class BaseHttpClient
     {
         public const string TOKEN = "token";

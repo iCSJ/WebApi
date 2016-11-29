@@ -11,7 +11,9 @@ namespace BaseApi.Models
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public partial class MySqlDBConnection : DbContext
     {
-        public MySqlDBConnection() : base("name=MySqlDBContext") { }
+        private static string connectionStr = "server=localhost;user id=root;password=8888;persistsecurityinfo=True;database=Dinner";
+        //public MySqlDBConnection() : base("name=MySqlDBContext") { }
+        public MySqlDBConnection() : base(connectionStr) { }
         public static MySqlDBConnection Instance
         {
             get

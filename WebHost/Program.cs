@@ -19,7 +19,6 @@ namespace WebHost
             var options = new StartOptions();
             options.Urls.Add(baseUri);
             //options.Urls.Add("http://localhost:8081");
-
             Console.WriteLine("Starting web Server...");
             WebApp.Start<Startup>(options);
             Console.WriteLine("Server running at {0} - press Enter to quit. ", baseUri);

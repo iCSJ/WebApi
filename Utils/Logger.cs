@@ -19,7 +19,7 @@ namespace Utils {
                     ));
                     i++; e = e.InnerException;
                 } while(e != null);
-            } catch(Exception ex) {
+            } catch(Exception ) {
                 System.Windows.MessageBox.Show(String.Format("ERROR ON SAVING ERROR : <err code=\"{0}\" dt=\"{1}\"><msg>{2}</msg><trace>{3}</trace><custom>{4}</custom></err>"
                     , errCode
                     , GetDate()

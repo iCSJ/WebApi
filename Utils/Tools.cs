@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Permissions;
@@ -22,6 +23,49 @@ namespace Utils
     /// </summary>
     public static class UITool
     {
+        /// <summary>
+        /// 检查列表控件的项是否在可见范围内
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="listBox"></param>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static bool IsUserVisible<T>(this ListBox listBox, T element) where T : FrameworkElement
+        {
+            if (!element.IsVisible)
+                return false;
+            ScrollViewer container = FindVisualChild<ScrollViewer>(listBox);
+            if (container == null)
+                return false;
+            var control = element as Control;
+            Rect bounds =
+                element.TransformToAncestor(container).TransformBounds(new Rect(0.0, 0.0, element.ActualWidth - 1, element.ActualHeight - 1));
+            var rect = new Rect(0.0, 0.0, container.ActualWidth, container.ActualHeight);
+            return rect.Contains(bounds.TopLeft) || rect.Contains(bounds.BottomRight);
+        }
+        /// <summary>
+        /// 获取列表控件的可见项到新的列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="listBox"></param>
+        /// <returns></returns>
+        public static List<T> GetVisibleItemsFromListbox<T>(this ListBox listBox) where T : FrameworkElement
+        {
+            var items = new List<T>();
+
+            foreach (var item in listBox.Items)
+            {
+                if (listBox.IsUserVisible((T)listBox.ItemContainerGenerator.ContainerFromItem(item)))
+                {
+                    items.Add((T)listBox.ItemContainerGenerator.ContainerFromItem(item));
+                }
+                else if (items.Any())
+                {
+                    break;
+                }
+            }
+            return items;
+        }
         /// <summary>
         /// 获取控件模板子无素
         /// </summary>
