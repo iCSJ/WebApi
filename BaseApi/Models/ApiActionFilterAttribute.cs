@@ -22,6 +22,7 @@ using BaseApi.DAL;
 using Newtonsoft.Json.Converters;
 using BaseApi.Controllers;
 using Utils;
+using System.Web.Http.ExceptionHandling;
 
 namespace BaseApi.Models
 {
@@ -60,7 +61,14 @@ namespace BaseApi.Models
                 }
                 base.OnActionExecuting(actionContext);
 
-                //匿名
+                ///检查模型合法性
+                if (actionContext.ModelState.IsValid == false)
+                {
+                    actionContext.Response = actionContext.Request.CreateErrorResponse(
+                        HttpStatusCode.BadRequest, actionContext.ModelState);
+                    return;
+                }
+
                 if (actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().Any())
                 {
                     return;

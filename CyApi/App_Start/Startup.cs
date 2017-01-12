@@ -12,6 +12,10 @@ using System.Collections.Generic;
 using System.Web.Http.Routing;
 using System.Web.Http.Controllers;
 using System.Net.Http.Formatting;
+using log4net;
+using log4net.Util;
+using Newtonsoft.Json;
+using System.Web.Http.ExceptionHandling;
 
 namespace CyApi
 {
@@ -28,7 +32,7 @@ namespace CyApi
         }
 
         private HttpConfiguration ConfigureWebApi()
-        {
+        {             
             var config = new HttpConfiguration();
             // Web API 路由
             //config.MapHttpAttributeRoutes();
@@ -41,6 +45,10 @@ namespace CyApi
                 "api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
             ConfigureApiContent(config);
+            config.Services.Add(typeof(IExceptionLogger),new GlobalExceptionLogger());
+            config.Services.Replace(typeof(IExceptionHandler), new GlobalsExceptionHandler());
+            ///用普通webapi方式调用ODataController子类需要重写MediaTypeFormatter子类才能成功，否则报406 Not Accetpable
+            config.Formatters.Add(new JsonDotNetFormatter());
             return config;
         }
         private void ConfigMySql()
